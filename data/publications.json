@@ -1,0 +1,35 @@
+[
+    {
+        "title": "Trade Shocks and Deforestation in Brazil: Evidence from Spatial Panel Econometrics",
+        "displayTitle": "Trade Shocks and Deforestation in Brazil",
+        "authors": "<strong>Your Name</strong>, Advisor Name",
+        "type": "working-paper",
+        "isFirstAuthor": true,
+        "showOnHomepage": true,
+        "venue": "Working Paper / Master Thesis, Your University",
+        "venueTag": "Working Paper",
+        "year": "2026",
+        "thumbnail": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+        "tags": [
+            { "text": "Paper (PDF)", "link": "assets/cv.pdf" },
+            { "text": "Code", "link": "https://github.com" },
+            { "text": "Replication", "link": "https://github.com" }
+        ]
+    },
+    {
+        "title": "Spectral Characterization and Biogeochemical Interactions of Biochar-derived Dissolved Organic Matter",
+        "displayTitle": "Characterization of Biochar-derived Dissolved Organic Matter",
+        "authors": "<strong>Your Name</strong>, Co-Author One, Co-Author Two",
+        "type": "accepted",
+        "isFirstAuthor": true,
+        "showOnHomepage": true,
+        "venue": "Journal of Environmental Quality, 2025 · SCI Q1 · DOI: 10.1016/sample.doi",
+        "venueTag": "SCI Q1",
+        "year": "2025",
+        "thumbnail": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80",
+        "tags": [
+            { "text": "Paper", "link": "#" },
+            { "text": "DOI", "link": "https://doi.org" }
+        ]
+    }
+]

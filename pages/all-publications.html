@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Full Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 antialiased font-sans">
+    <nav class="top-nav glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-serif font-bold text-xl text-slate-900 hover:text-amber-600 transition-colors">&larr; Back to Homepage</a>
+            <span class="text-sm text-slate-500 font-medium">All Publications</span>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+        <h1 class="text-4xl font-serif font-bold text-slate-900 mb-2">All Publications &amp; Preprints</h1>
+        <p class="text-slate-500 mb-8">A comprehensive chronological list of published papers, working papers, and theses.</p>
+        <div id="all-publications-container" class="space-y-4"></div>
+    </main>
+
+    <script>
+        fetch('../data/publications.json')
+            .then(res => res.json())
+            .then(pubs => {
+                const container = document.getElementById('all-publications-container');
+                container.innerHTML = pubs.map(pub => `
+                    <div class="pub-list-item">
+                        <div class="flex-1 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-semibold text-slate-900 text-lg">${pub.title}</h3>
+                                ${pub.venueTag ? `<span class="pub-venue-tag">${pub.venueTag}</span>` : ''}
+                            </div>
+                            <p class="text-sm text-slate-600">${pub.authors}</p>
+                            <p class="text-xs text-slate-500 italic">${pub.venue}</p>
+                            ${pub.tags ? `
+                                <div class="flex flex-wrap gap-2 pt-1">
+                                    ${pub.tags.map(t => `<a href="${t.link}" target="_blank" class="pub-link-btn">${t.text}</a>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>
+</html>

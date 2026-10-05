@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Archive | All News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 antialiased font-sans">
+    <nav class="top-nav glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-serif font-bold text-xl text-slate-900 hover:text-amber-600 transition-colors">&larr; Back to Homepage</a>
+            <span class="text-sm text-slate-500 font-medium">News Archive</span>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 pt-28 pb-16">
+        <h1 class="text-4xl font-serif font-bold text-slate-900 mb-6">News &amp; Updates Archive</h1>
+        <div id="all-news-container" class="bg-white p-6 rounded-2xl border border-slate-200 space-y-4"></div>
+    </main>
+
+    <script>
+        fetch('../data/news.json')
+            .then(res => res.json())
+            .then(items => {
+                const container = document.getElementById('all-news-container');
+                container.innerHTML = items.map(item => `
+                    <div class="news-item">
+                        <span class="news-date">${item.date}</span>
+                        <span class="text-sm text-slate-700">${item.content}</span>
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
