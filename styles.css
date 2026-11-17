@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Questrial&family=Source+Code+Pro:wght@400;500;600&display=swap');
 
 :root {
   --gitfolio-bg: #0d1117;
   --gitfolio-card: #161b22;
-  --gitfolio-border: #30363d;
-  --gitfolio-text: #c9d1d9;
-  --gitfolio-heading: #f0f6fc;
+  --gitfolio-border: rgba(255, 255, 255, 0.15);
+  --gitfolio-text: #ffffff;
+  --gitfolio-heading: #ffffff;
   --gitfolio-accent: #58a6ff;
   --gitfolio-accent-hover: #79c0ff;
   
-  /* Gitfolio Signature Background Image (with dark gradient overlay for text clarity) */
+  /* Gitfolio Signature Background Image (User uploaded assets/background.jpg) */
   --gitfolio-bg-image: linear-gradient(
-      180deg,
-      rgba(13, 17, 23, 0.72) 0%,
-      rgba(22, 27, 34, 0.92) 100%
+      90deg,
+      rgba(10, 10, 10, 0.35),
+      rgba(10, 10, 10, 0.72)
     ),
-    url("https://images.unsplash.com/photo-1562683855-f85c2a6446b6?w=1701&q=80");
+    url("assets/background.jpg");
   
   --academic-bg: #f6f8fa;
   --academic-card-bg: #ffffff;
@@ -35,117 +35,117 @@ body {
 }
 
 /* ===================================================
-   1) GITFOLIO-STYLE LEFT RIBBON
+   1) GITFOLIO-STYLE LEFT RIBBON (Exact Match)
    =================================================== */
 .gitfolio-ribbon {
   background: var(--gitfolio-bg-image) center center / cover no-repeat;
-  background-attachment: scroll;
-  color: var(--gitfolio-text);
-  border-right: 1px solid var(--gitfolio-border);
+  color: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
   position: relative;
-}
-
-.gitfolio-ribbon::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.gitfolio-ribbon > * {
-  position: relative;
-  z-index: 1;
 }
 
 .gitfolio-avatar {
-  width: 170px;
-  height: 170px;
-  border-radius: 14px;
+  width: 140px;
+  height: 140px;
+  border-radius: 8px;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+  transition: transform 0.25s ease;
 }
 
 .gitfolio-avatar:hover {
   transform: scale(1.02);
-  border-color: var(--gitfolio-accent);
 }
 
 .gitfolio-username {
   font-family: 'Poppins', sans-serif;
-  color: var(--gitfolio-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .gitfolio-handle {
-  font-family: 'Source Code Pro', monospace;
-  color: #8b949e;
-  transition: color 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.92;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  display: block;
+  margin-top: 2px;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
 .gitfolio-handle:hover {
-  color: var(--gitfolio-accent);
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .gitfolio-bio {
-  color: #8b949e;
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-family: 'Questrial', sans-serif;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 1.25rem 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
 }
 
 .gitfolio-meta-item {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-size: 0.88rem;
-  color: #c9d1d9;
+  gap: 0.75rem;
+  font-family: 'Questrial', sans-serif;
+  font-size: 0.98rem;
+  color: #ffffff;
+  margin: 0.45rem 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .gitfolio-meta-item i {
-  width: 16px;
+  width: 18px;
   text-align: center;
-  color: #8b949e;
+  color: #ffffff;
+  font-size: 0.95rem;
+  opacity: 0.95;
 }
 
 .gitfolio-meta-item a {
-  color: #c9d1d9;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
 
 .gitfolio-meta-item a:hover {
-  color: var(--gitfolio-accent);
+  text-decoration: underline;
+  opacity: 0.9;
 }
 
-/* Gitfolio Social Buttons */
-.gitfolio-social-btn {
-  width: 2.35rem;
-  height: 2.35rem;
+/* Gitfolio Social Icons */
+.gitfolio-social-icon {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-right: 1.15rem;
+  opacity: 0.92;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease, opacity 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  border: 1px solid var(--gitfolio-border);
-  background: rgba(22, 27, 34, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #c9d1d9;
-  font-size: 1rem;
   text-decoration: none;
-  transition: all 0.2s ease;
 }
 
-.gitfolio-social-btn:hover {
-  background: rgba(88, 166, 255, 0.2);
-  border-color: var(--gitfolio-accent);
-  color: var(--gitfolio-accent);
-  transform: translateY(-2px);
+.gitfolio-social-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.1);
+  color: #79c0ff;
 }
 
-/* Gitfolio Skill / Interest Badges */
+/* Gitfolio Badges */
 .gitfolio-badge {
   display: inline-flex;
   align-items: center;
@@ -154,11 +154,10 @@ body {
   border-radius: 6px;
   font-size: 0.76rem;
   font-family: 'Source Code Pro', monospace;
-  background: rgba(22, 27, 34, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(240, 246, 252, 0.15);
-  color: #c9d1d9;
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   transition: all 0.2s;
 }
 

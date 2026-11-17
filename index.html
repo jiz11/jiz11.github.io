@@ -20,32 +20,37 @@
     <div class="min-h-screen flex flex-col lg:flex-row">
         
         <!-- ===================================================
-             1) GITFOLIO-STYLE LEFT RIBBON
+             1) GITFOLIO-STYLE LEFT RIBBON (Matches Screenshot)
              =================================================== -->
-        <aside class="gitfolio-ribbon w-full lg:w-[340px] xl:w-[360px] lg:min-h-screen lg:sticky lg:top-0 flex-shrink-0 p-6 lg:p-8 flex flex-col justify-between z-40">
-            <div class="space-y-6">
+        <aside class="gitfolio-ribbon w-full lg:w-[350px] xl:w-[380px] lg:min-h-screen lg:sticky lg:top-0 flex-shrink-0 p-6 lg:p-10 flex flex-col justify-center z-40">
+            <div class="space-y-2">
                 
-                <!-- Avatar & Identity -->
-                <div class="text-left space-y-4">
-                    <div class="inline-block relative">
-                        <img src="assets/profile.jpg" 
-                             alt="Your Portrait" 
-                             class="gitfolio-avatar">
-                    </div>
-                    
-                    <div>
-                        <h1 class="text-2xl font-bold gitfolio-username text-white">Your Name</h1>
-                        <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-handle text-sm inline-flex items-center gap-1.5 mt-0.5">
-                            <i class="fab fa-github text-xs"></i>@jiz11
-                        </a>
-                        <p class="gitfolio-bio mt-2 text-sm">
-                            Researcher &amp; PhD Applicant in Environmental Policy &amp; Spatial Economics.
-                        </p>
-                    </div>
+                <!-- Avatar -->
+                <div class="mb-4">
+                    <img src="assets/profile.jpg" 
+                         alt="Your Portrait" 
+                         class="gitfolio-avatar">
+                </div>
+                
+                <!-- Username & Handle (Gitfolio style) -->
+                <div>
+                    <h1 class="gitfolio-username">Your Name</h1>
+                    <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-handle">
+                        @jiz11
+                    </a>
                 </div>
 
-                <!-- Meta Info List -->
-                <div class="space-y-2.5 pt-2 border-t border-[#30363d]/60">
+                <!-- Bio Headline (Questrial font, matching screenshot) -->
+                <div class="gitfolio-bio">
+                    Researcher &amp; PhD Applicant in Environmental Policy &amp; Economics
+                </div>
+
+                <!-- Meta Links (Gitfolio #about style) -->
+                <div class="space-y-1.5 pt-1 pb-2">
+                    <div class="gitfolio-meta-item">
+                        <i class="fas fa-link"></i>
+                        <a href="https://jiz11.github.io" target="_blank" rel="noopener noreferrer">https://jiz11.github.io</a>
+                    </div>
                     <div class="gitfolio-meta-item">
                         <i class="fas fa-university"></i>
                         <span>Duke University</span>
@@ -60,46 +65,40 @@
                     </div>
                     <div class="gitfolio-meta-item">
                         <i class="fas fa-file-pdf"></i>
-                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-400 hover:underline">Curriculum Vitae (PDF)</a>
+                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a>
                     </div>
                 </div>
 
-                <!-- Social Links Row -->
-                <div class="pt-2 border-t border-[#30363d]/60">
-                    <div class="text-xs font-mono uppercase tracking-wider text-[#8b949e] mb-2.5">Connect</div>
-                    <div class="flex flex-wrap gap-2">
-                        <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="Google Scholar">
-                            <i class="fas fa-graduation-cap"></i>
-                        </a>
-                        <a href="mailto:your_email@university.edu" class="gitfolio-social-btn" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="Resume">
-                            <i class="fas fa-file-alt"></i>
-                        </a>
-                    </div>
+                <!-- Social Icons (Gitfolio inline style) -->
+                <div class="flex items-center pt-2 pb-3">
+                    <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="Google Scholar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="mailto:your_email@university.edu" class="gitfolio-social-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="Resume">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
                 </div>
 
-                <!-- Research Interests / Skill Badges (Gitfolio style) -->
-                <div class="pt-2 border-t border-[#30363d]/60">
-                    <div class="text-xs font-mono uppercase tracking-wider text-[#8b949e] mb-2.5">Research Focus</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="gitfolio-badge"><i class="fas fa-chart-line text-blue-400 text-[10px]"></i> Causal Inference</span>
-                        <span class="gitfolio-badge"><i class="fas fa-leaf text-green-400 text-[10px]"></i> Environmental Policy</span>
-                        <span class="gitfolio-badge"><i class="fas fa-satellite text-amber-400 text-[10px]"></i> Spatial GIS</span>
-                        <span class="gitfolio-badge"><i class="fas fa-robot text-purple-400 text-[10px]"></i> AI for Science</span>
-                    </div>
+                <!-- Focus Badges (Gitfolio tag style) -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="gitfolio-badge"><i class="fas fa-chart-line text-blue-400 text-[10px]"></i> Causal Inference</span>
+                    <span class="gitfolio-badge"><i class="fas fa-leaf text-green-400 text-[10px]"></i> Environmental Policy</span>
+                    <span class="gitfolio-badge"><i class="fas fa-satellite text-amber-400 text-[10px]"></i> Spatial GIS</span>
+                    <span class="gitfolio-badge"><i class="fas fa-robot text-purple-400 text-[10px]"></i> AI for Science</span>
                 </div>
 
             </div>
 
-            <div class="pt-6 border-t border-[#30363d]/60 text-xs text-[#8b949e] font-mono mt-6 lg:mt-0">
+            <div class="pt-6 text-xs text-white/70 font-mono mt-6 lg:mt-8">
                 &copy; <span id="current-year"></span> Your Name
             </div>
         </aside>
