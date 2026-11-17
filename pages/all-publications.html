@@ -4,38 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Publications | Archive</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../styles.css">
-</head>
-<body class="bg-[#f6f8fa] text-[#24292e] antialiased font-sans">
     
-    <nav class="academic-topbar sticky top-0 z-30 mb-8 px-4 h-14 flex items-center justify-between">
-        <div class="max-w-4xl mx-auto w-full flex items-center justify-between">
-            <a href="../index.html" class="font-medium text-sm text-blue-600 hover:underline flex items-center gap-1.5">
-                <i class="fas fa-arrow-left text-xs"></i> Back to Homepage
-            </a>
-            <span class="text-xs font-mono text-slate-500 uppercase">Publications Archive</span>
-        </div>
-    </nav>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            padding: 4vh 6vw;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
 
-    <main class="max-w-4xl mx-auto px-4 pb-16">
-        <div class="academic-card">
-            <div class="academic-card-header">
-                <h1 class="academic-card-title">
-                    <i class="fas fa-book-open"></i> All Publications &amp; Working Papers
-                </h1>
-            </div>
-            <div class="academic-card-body">
-                <div id="all-publications-container" class="space-y-4">
-                    <!-- Loaded dynamically -->
-                </div>
-            </div>
-        </div>
-    </main>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+        <a href="../index.html" style="color: var(--accent-color); font-family: 'Questrial', sans-serif; text-decoration: none; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <span style="font-family: 'Questrial', sans-serif; color: var(--text-secondary); font-size: 14px;">Publications Archive</span>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <h1 style="font-size: 48px; font-family: 'Questrial', sans-serif; color: #fff; margin-bottom: 30px;">All Publications.</h1>
+        <div class="projects" id="all-publications-container"></div>
+    </div>
+
+    <div id="footer" style="margin-top: 60px;">
+        <p>made on earth by a human &nbsp;·&nbsp; <a href="../index.html">Back to Home</a></p>
+    </div>
 
     <script>
         function getTagIcon(text) {
@@ -48,38 +45,39 @@
 
         fetch('../data/publications.json')
             .then(res => res.json())
-            .then(pubs => {
+            .then(publications => {
                 const container = document.getElementById('all-publications-container');
-                container.innerHTML = pubs.map(pub => {
-                    const tagsHtml = pub.tags && pub.tags.length ? `
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            ${pub.tags.map(tag => `
-                                <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="pub-action-btn">
-                                    <i class="${getTagIcon(tag.text)}"></i> ${tag.text}
-                                </a>
-                            `).join('')}
-                        </div>
-                    ` : '';
+                container.innerHTML = publications.map(pub => {
+                    const tagsHtml = pub.tags && pub.tags.length ? pub.tags.map(tag => `
+                        <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="gitfolio-tag-btn">
+                            <i class="${getTagIcon(tag.text)}"></i> ${tag.text}
+                        </a>
+                    `).join('') : '';
 
                     const thumbHtml = pub.thumbnail ? `
-                        <div class="pub-teaser-box">
+                        <div class="pub-gitfolio-teaser">
                             <img src="${pub.thumbnail}" alt="${pub.title} preview" loading="lazy">
                         </div>
                     ` : '';
 
                     return `
-                        <div class="pub-card-item">
-                            ${thumbHtml}
-                            <div class="flex-1 space-y-1.5 min-w-0">
-                                <h3 class="pub-title text-base">${pub.title}</h3>
-                                <p class="pub-authors">${pub.authors}</p>
-                                <div class="pub-venue">
-                                    <span>${pub.venue}</span>
-                                    ${pub.venueTag ? `<span class="pub-venue-badge">${pub.venueTag}</span>` : ''}
+                        <section class="gitfolio-card">
+                            <div>
+                                ${thumbHtml}
+                                <div class="section_title">${pub.displayTitle || pub.title}</div>
+                                <div class="about_section">
+                                    <p style="margin: 0 0 6px 0;">${pub.authors}</p>
+                                    <p style="margin: 0; color: #8b949e; font-size: 14px;">
+                                        <em>${pub.venue}</em>
+                                        ${pub.venueTag ? ` <span class="venue-tag-badge">${pub.venueTag}</span>` : ''}
+                                    </p>
                                 </div>
+                            </div>
+                            <div class="bottom_section">
+                                <span><i class="fas fa-calendar"></i> ${pub.year}</span>
                                 ${tagsHtml}
                             </div>
-                        </div>
+                        </section>
                     `;
                 }).join('');
             });

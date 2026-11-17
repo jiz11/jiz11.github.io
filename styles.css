@@ -1,151 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Questrial&family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
 
 :root {
-  --gitfolio-bg: #0d1117;
-  --gitfolio-card: #161b22;
-  --gitfolio-border: rgba(255, 255, 255, 0.15);
-  --gitfolio-text: #ffffff;
-  --gitfolio-heading: #ffffff;
-  --gitfolio-accent: #58a6ff;
-  --gitfolio-accent-hover: #79c0ff;
-  
-  /* Gitfolio Signature Background Image (User uploaded assets/background.jpg) */
-  --gitfolio-bg-image: linear-gradient(
+  --bg-color: rgb(10, 10, 10);
+  --card-bg: rgb(20, 20, 20);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-border: rgba(255, 255, 255, 0.22);
+  --text-color: #ffffff;
+  --text-secondary: rgb(180, 180, 180);
+  --accent-color: #58a6ff;
+  --accent-hover: #79c0ff;
+  --background-image: linear-gradient(
       90deg,
       rgba(10, 10, 10, 0.35),
       rgba(10, 10, 10, 0.72)
     ),
     url("assets/background.jpg");
-  
-  --academic-bg: #f6f8fa;
-  --academic-card-bg: #ffffff;
-  --academic-border: #e1e4e8;
-  --academic-text: #24292e;
-  --academic-muted: #586069;
-  --academic-primary: #0366d6;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--academic-text);
-  background-color: var(--academic-bg);
-  line-height: 1.6;
   margin: 0;
   padding: 0;
+  width: 100%;
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
 /* ===================================================
-   1) GITFOLIO-STYLE LEFT RIBBON (Exact Match)
+   1) GITFOLIO FIXED LEFT PROFILE
    =================================================== */
-.gitfolio-ribbon {
-  background: var(--gitfolio-bg-image) center center / cover no-repeat;
-  color: #ffffff;
-  border-right: 1px solid rgba(0, 0, 0, 0.25);
-  position: relative;
+#profile {
+  width: 25vw;
+  min-width: 320px;
+  max-width: 380px;
+  padding: 4vh 3vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: var(--background-image) center center / cover no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff !important;
+  z-index: 50;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.gitfolio-avatar {
+#profile_img {
   width: 140px;
   height: 140px;
+  min-width: 140px;
+  min-height: 140px;
+  max-width: 140px;
+  max-height: 140px;
   border-radius: 8px;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5vh;
   transition: transform 0.25s ease;
 }
 
-.gitfolio-avatar:hover {
+#profile_img:hover {
   transform: scale(1.02);
 }
 
-.gitfolio-username {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.65rem;
-  font-weight: 700;
-  color: #ffffff;
+#username {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
   line-height: 1.2;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.gitfolio-handle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.05rem;
+#username a {
+  font-size: 16px;
   font-weight: 500;
   color: #ffffff;
-  opacity: 0.92;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
-  display: block;
-  margin-top: 2px;
+  opacity: 0.9;
   text-decoration: none;
+  display: block;
+  margin-top: 3px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
   transition: opacity 0.2s;
 }
 
-.gitfolio-handle:hover {
+#username a:hover {
   opacity: 1;
   text-decoration: underline;
 }
 
-.gitfolio-bio {
-  font-family: 'Questrial', sans-serif;
+#userbio {
+  font-size: 20px;
+  font-family: "Questrial", sans-serif;
   color: #ffffff;
-  font-size: 1.35rem;
-  font-weight: 400;
   line-height: 1.35;
-  margin: 1.25rem 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+  margin: 1.5vh 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-.gitfolio-meta-item {
+#about {
+  font-size: 15px;
+  font-family: "Questrial", sans-serif;
+  margin: 1vh 0;
+}
+
+#about .meta-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: 'Questrial', sans-serif;
-  font-size: 0.98rem;
   color: #ffffff;
-  margin: 0.45rem 0;
+  margin: 0.5vh 0;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
-.gitfolio-meta-item i {
+#about .meta-item i {
   width: 18px;
   text-align: center;
   color: #ffffff;
-  font-size: 0.95rem;
-  opacity: 0.95;
+  font-size: 14px;
 }
 
-.gitfolio-meta-item a {
+#about .meta-item a {
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s;
 }
 
-.gitfolio-meta-item a:hover {
+#about .meta-item a:hover {
   text-decoration: underline;
-  opacity: 0.9;
 }
 
-/* Gitfolio Social Icons */
-.gitfolio-social-icon {
+.socials {
+  margin-top: 1.5vh;
+  display: flex;
+  align-items: center;
+}
+
+.socials a {
   color: #ffffff;
   font-size: 1.3rem;
-  margin-right: 1.15rem;
-  opacity: 0.92;
+  margin-right: 1.2rem;
+  opacity: 0.9;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
 
-.gitfolio-social-icon:hover {
+.socials a:hover {
   opacity: 1;
-  transform: translateY(-2px) scale(1.1);
-  color: #79c0ff;
+  color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
-/* Gitfolio Badges */
 .gitfolio-badge {
   display: inline-flex;
   align-items: center;
@@ -154,230 +172,263 @@ body {
   border-radius: 6px;
   font-size: 0.76rem;
   font-family: 'Source Code Pro', monospace;
-  background: rgba(10, 10, 10, 0.6);
+  background: rgba(10, 10, 10, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  transition: all 0.2s;
-}
-
-.gitfolio-badge:hover {
-  border-color: var(--gitfolio-accent);
-  color: var(--gitfolio-accent);
 }
 
 /* ===================================================
-   2) LUOST26-STYLE ACADEMIC CONTENT
+   2) GITFOLIO RIGHT DISPLAY CONTENT
    =================================================== */
-.academic-topbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--academic-border);
+#display {
+  width: calc(100vw - 25vw);
+  margin-left: 25vw;
+  padding: 2.5vh 4vw 8vh;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.academic-nav-link {
-  font-weight: 500;
-  color: #586069;
-  text-decoration: none;
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
-  transition: all 0.18s ease;
-  font-size: 0.9rem;
-}
-
-.academic-nav-link:hover,
-.academic-nav-link.active {
-  color: var(--academic-primary);
-  background: #f1f8ff;
-}
-
-/* luost26 Card Style */
-.academic-card {
-  background: #ffffff;
-  border: 1px solid var(--academic-border);
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-}
-
-.academic-card-header {
-  padding: 0.9rem 1.25rem;
-  background: #ffffff;
-  border-bottom: 1px solid var(--academic-border);
+/* Gitfolio Top Navigation Header */
+#header {
+  width: 100%;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  padding: 1.5vh 0 3vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#header a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 2.5vw;
+  font-family: "Questrial", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.75;
+  transition: all 0.2s ease;
+}
+
+#header a:hover,
+#header a.active {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+/* Gitfolio Signature Headings */
+#display h1 {
+  font-size: 48px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Questrial", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+
+/* Gitfolio Project Grid / Cards */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.gitfolio-card,
+.projects section {
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--card-bg);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.academic-card-title {
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #1f2328;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
+.gitfolio-card:hover,
+.projects section:hover {
+  transform: scale(1.015);
+  border-color: var(--card-hover-border);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+  background: rgb(24, 24, 24);
 }
 
-.academic-card-title i {
-  color: var(--academic-primary);
-  font-size: 1.05rem;
+.section_title {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Questrial", sans-serif;
+  margin-bottom: 12px;
+  color: #ffffff;
+  line-height: 1.35;
 }
 
-.academic-card-body {
-  padding: 1.25rem;
+.about_section {
+  font-size: 15px;
+  font-family: "Questrial", sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.65;
 }
 
-/* luost26 Publication Item */
-.pub-card-item {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid #eaecef;
-}
-
-.pub-card-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0.2rem;
-}
-
-.pub-card-item:first-child {
-  padding-top: 0.2rem;
-}
-
-.pub-teaser-box {
-  width: 170px;
-  aspect-ratio: 16 / 9;
-  flex-shrink: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #e1e4e8;
-  background: #f6f8fa;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.pub-teaser-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.25s ease;
-}
-
-.pub-card-item:hover .pub-teaser-box img {
-  transform: scale(1.03);
-}
-
-.pub-title {
-  font-size: 1.02rem;
-  font-weight: 600;
-  color: #1f2328;
-  line-height: 1.4;
-  margin-bottom: 0.3rem;
-}
-
-.pub-authors {
-  font-size: 0.9rem;
-  color: #444d56;
-  margin-bottom: 0.25rem;
-}
-
-.pub-authors strong {
-  color: #0366d6;
+.about_section strong {
+  color: #ffffff;
   font-weight: 600;
 }
 
-.pub-venue {
-  font-size: 0.86rem;
-  color: #586069;
+.bottom_section {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13.5px;
+  font-family: "Questrial", sans-serif;
+  color: #888888;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.5rem;
+  gap: 16px;
 }
 
-.pub-venue-badge {
+.bottom_section span,
+.bottom_section a {
   display: inline-flex;
   align-items: center;
-  padding: 0.15rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: #f1f8ff;
-  color: #0366d6;
-  border: 1px solid rgba(3, 102, 214, 0.2);
-}
-
-.pub-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.76rem;
-  font-weight: 500;
-  padding: 0.22rem 0.65rem;
-  border-radius: 6px;
-  border: 1px solid #d1d5da;
-  background: #fafbfc;
-  color: #24292e;
+  gap: 6px;
+  color: var(--text-secondary);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: color 0.2s;
 }
 
-.pub-action-btn:hover {
-  background: #f3f4f6;
-  border-color: #0366d6;
-  color: #0366d6;
+.bottom_section a:hover {
+  color: var(--accent-color);
 }
 
-/* luost26 Education & Honor items */
-.edu-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px dashed #eaecef;
+/* Publication Card Teaser Image */
+.pub-gitfolio-teaser {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000;
 }
 
-.edu-item:last-child {
-  border-bottom: none;
+.pub-gitfolio-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.edu-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #f1f8ff;
-  color: #0366d6;
-  display: flex;
+.gitfolio-card:hover .pub-gitfolio-teaser img,
+.projects section:hover .pub-gitfolio-teaser img {
+  transform: scale(1.03);
+}
+
+.gitfolio-tag-btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  flex-shrink: 0;
-  border: 1px solid rgba(3, 102, 214, 0.15);
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff !important;
+  font-size: 12.5px;
+  transition: all 0.2s ease;
 }
 
-.honor-item-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.6rem 0;
-  border-bottom: 1px dashed #eaecef;
-  font-size: 0.9rem;
+.gitfolio-tag-btn:hover {
+  background: rgba(88, 166, 255, 0.18);
+  border-color: var(--accent-color);
+  color: var(--accent-hover) !important;
 }
 
-.honor-item-row:last-child {
-  border-bottom: none;
+.venue-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent-color);
+  border: 1px solid rgba(88, 166, 255, 0.3);
 }
 
-@media (max-width: 768px) {
-  .pub-card-item {
-    flex-direction: column;
-  }
-  .pub-teaser-box {
+/* ===================================================
+   3) GITFOLIO FOOTER
+   =================================================== */
+#footer {
+  width: 100%;
+  padding: 70px 0 30px;
+  text-align: center;
+  font-family: "Questrial", sans-serif;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+#footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+#footer a:hover {
+  color: var(--accent-color);
+}
+
+/* ===================================================
+   4) RESPONSIVE DESIGN (GITFOLIO MEDIA QUERIES)
+   =================================================== */
+@media (max-width: 1024px) {
+  #profile {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    padding: 60px 24px;
+    text-align: center;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #profile_img {
+    margin: 0 auto 20px;
+  }
+
+  #about .meta-item {
+    justify-content: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  #display {
+    width: 100%;
+    margin-left: 0;
+    padding: 30px 24px 60px;
+  }
+
+  #header {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  #header a {
+    margin: 0 10px;
+  }
+
+  #display h1 {
+    font-size: 38px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 }

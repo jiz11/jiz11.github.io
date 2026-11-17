@@ -1,262 +1,234 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Academic Homepage</title>
+    <title>Your Name | Academic Portfolio</title>
     
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons (Gitfolio exact stack) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Tailwind CSS & Custom Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#f6f8fa] text-[#24292e] antialiased">
+<body>
 
-    <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- ===================================================
+         1) GITFOLIO FIXED LEFT PROFILE RIBBON
+         =================================================== -->
+    <div id="profile" style="background-image: linear-gradient(90deg, rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.72)), url('assets/background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <img id="profile_img" src="assets/profile.jpg" alt="Your Portrait">
         
-        <!-- ===================================================
-             1) GITFOLIO-STYLE LEFT RIBBON (Matches Screenshot)
-             =================================================== -->
-        <aside class="gitfolio-ribbon w-full lg:w-[350px] xl:w-[380px] lg:min-h-screen lg:sticky lg:top-0 flex-shrink-0 p-6 lg:p-10 flex flex-col justify-center z-40"
-               style="background-image: linear-gradient(90deg, rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.72)), url('assets/background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-            <div class="space-y-2">
+        <div id="username">
+            <span>Your Name</span>
+            <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer">@jiz11</a>
+        </div>
+
+        <div id="userbio">
+            Researcher &amp; PhD Applicant in Environmental Policy &amp; Economics
+        </div>
+
+        <div id="about">
+            <div class="meta-item">
+                <i class="fas fa-university"></i>
+                <span>Duke University · DKU</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Durham, NC / Kunshan</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:your_email@university.edu">your_email@university.edu</a>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-file-pdf"></i>
+                <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-link"></i>
+                <a href="https://jiz11.github.io" target="_blank" rel="noopener noreferrer">https://jiz11.github.io</a>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" title="Google Scholar">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="mailto:your_email@university.edu" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
+                <i class="fas fa-file-alt"></i>
+            </a>
+        </div>
+
+        <div style="margin-top: 1.5vh; display: flex; flex-wrap: wrap; gap: 6px;">
+            <span class="gitfolio-badge"><i class="fas fa-chart-line text-blue-400"></i> Econometrics</span>
+            <span class="gitfolio-badge"><i class="fas fa-leaf text-green-400"></i> Environmental Policy</span>
+            <span class="gitfolio-badge"><i class="fas fa-satellite text-amber-400"></i> Spatial GIS</span>
+            <span class="gitfolio-badge"><i class="fas fa-robot text-purple-400"></i> AI for Science</span>
+        </div>
+    </div>
+
+    <!-- ===================================================
+         2) GITFOLIO RIGHT DISPLAY CONTENT
+         =================================================== -->
+    <div id="display">
+        
+        <!-- Top Navigation Bar (Gitfolio style) -->
+        <div id="header">
+            <a href="#about" class="active">About.</a>
+            <a href="#education">Education.</a>
+            <a href="#research">Research.</a>
+            <a href="#honors">Honors.</a>
+            <a href="#contact">Contact.</a>
+        </div>
+
+        <!-- SECTION 1: ABOUT ME -->
+        <div id="about">
+            <h1>About Me.</h1>
+            <div class="gitfolio-card" style="margin-bottom: 30px;">
+                <div class="section_title" style="color: #fff; font-size: 24px;">Biographical Summary</div>
+                <div class="about_section" style="font-size: 16px; line-height: 1.8;">
+                    <p style="margin-top: 0;">
+                        Welcome to my academic homepage! I am an empirical environmental policy researcher pursuing a Master of Environmental Policy (iMEP) at <strong>Duke University</strong>. My work sits at the intersection of <strong>environmental and land-use economics</strong>, <strong>climate adaptation</strong>, and <strong>spatial econometric measurement</strong>.
+                    </p>
+                    <p>
+                        I use causal inference methods (Difference-in-Differences, synthetic controls, panel regression) combined with satellite remote sensing (Sentinel-2, Landsat, nighttime lights) to identify how macroeconomic shocks, trade policies, and regulatory mechanisms reshape environmental and ecological outcomes.
+                    </p>
+                    <p style="margin-bottom: 0; padding: 12px 16px; border-left: 3px solid var(--accent-color); background: rgba(88, 166, 255, 0.08); border-radius: 0 4px 4px 0;">
+                        <strong style="color: #58a6ff;"><i class="fas fa-bullhorn"></i> PhD Applications:</strong> I am actively applying to fully-funded PhD programs in environmental and resource economics, public policy, and sustainability. Open to research collaborations and academic exchanges!
+                    </p>
+                </div>
+                <div class="bottom_section">
+                    <span><i class="fas fa-map-marker-alt"></i> Duke Kunshan University &amp; Duke Durham</span>
+                    <span><i class="fas fa-microscope"></i> Empirical Economics &amp; Policy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: EDUCATION -->
+        <div id="education">
+            <h1>Education.</h1>
+            <div class="projects">
                 
-                <!-- Avatar -->
-                <div class="mb-4">
-                    <img src="assets/profile.jpg" 
-                         alt="Your Portrait" 
-                         class="gitfolio-avatar">
-                </div>
-                
-                <!-- Username & Handle (Gitfolio style) -->
-                <div>
-                    <h1 class="gitfolio-username">Your Name</h1>
-                    <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-handle">
-                        @jiz11
-                    </a>
-                </div>
+                <section class="gitfolio-card">
+                    <div>
+                        <div class="section_title">Master of Environmental Policy (iMEP)</div>
+                        <div class="about_section">
+                            <p style="margin: 0 0 6px 0; color: #fff; font-weight: 600;">Duke University · Duke Kunshan University</p>
+                            <p style="margin: 0; color: var(--text-secondary);">
+                                Research Focus: Applied Environmental Econometrics, Land-use Dynamics, Climate &amp; Energy Policy.<br>
+                                Academic Performance: GPA 3.9 / 4.0
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bottom_section">
+                        <span><i class="fas fa-calendar-alt"></i> 2024 - 2026</span>
+                        <span><i class="fas fa-graduation-cap"></i> Master's Degree</span>
+                    </div>
+                </section>
 
-                <!-- Bio Headline (Questrial font, matching screenshot) -->
-                <div class="gitfolio-bio">
-                    Researcher &amp; PhD Applicant in Environmental Policy &amp; Economics
-                </div>
-
-                <!-- Meta Links (Gitfolio #about style) -->
-                <div class="space-y-1.5 pt-1 pb-2">
-                    <div class="gitfolio-meta-item">
-                        <i class="fas fa-link"></i>
-                        <a href="https://jiz11.github.io" target="_blank" rel="noopener noreferrer">https://jiz11.github.io</a>
+                <section class="gitfolio-card">
+                    <div>
+                        <div class="section_title">B.Sc. (Honours) in Resources &amp; Environment</div>
+                        <div class="about_section">
+                            <p style="margin: 0 0 6px 0; color: #fff; font-weight: 600;">Undergraduate University</p>
+                            <p style="margin: 0; color: var(--text-secondary);">
+                                Core Coursework: GIS, Remote Sensing, Environmental Chemistry, Statistics.<br>
+                                Graduated with Highest Academic Honors · Class Rank: Top 5%
+                            </p>
+                        </div>
                     </div>
-                    <div class="gitfolio-meta-item">
-                        <i class="fas fa-university"></i>
-                        <span>Duke University</span>
+                    <div class="bottom_section">
+                        <span><i class="fas fa-calendar-alt"></i> 2020 - 2024</span>
+                        <span><i class="fas fa-award"></i> Bachelor's Degree</span>
                     </div>
-                    <div class="gitfolio-meta-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Durham, NC / Kunshan</span>
-                    </div>
-                    <div class="gitfolio-meta-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:your_email@university.edu">your_email@university.edu</a>
-                    </div>
-                    <div class="gitfolio-meta-item">
-                        <i class="fas fa-file-pdf"></i>
-                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a>
-                    </div>
-                </div>
-
-                <!-- Social Icons (Gitfolio inline style) -->
-                <div class="flex items-center pt-2 pb-3">
-                    <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="Google Scholar">
-                        <i class="fas fa-graduation-cap"></i>
-                    </a>
-                    <a href="mailto:your_email@university.edu" class="gitfolio-social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="gitfolio-social-icon" title="Resume">
-                        <i class="fas fa-file-alt"></i>
-                    </a>
-                </div>
-
-                <!-- Focus Badges (Gitfolio tag style) -->
-                <div class="flex flex-wrap gap-1.5 pt-1">
-                    <span class="gitfolio-badge"><i class="fas fa-chart-line text-blue-400 text-[10px]"></i> Causal Inference</span>
-                    <span class="gitfolio-badge"><i class="fas fa-leaf text-green-400 text-[10px]"></i> Environmental Policy</span>
-                    <span class="gitfolio-badge"><i class="fas fa-satellite text-amber-400 text-[10px]"></i> Spatial GIS</span>
-                    <span class="gitfolio-badge"><i class="fas fa-robot text-purple-400 text-[10px]"></i> AI for Science</span>
-                </div>
+                </section>
 
             </div>
+        </div>
 
-            <div class="pt-6 text-xs text-white/70 font-mono mt-6 lg:mt-8">
-                &copy; <span id="current-year"></span> Your Name
+        <!-- SECTION 3: RESEARCH & PUBLICATIONS -->
+        <div id="research">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 50px; margin-bottom: 25px;">
+                <h1 style="margin: 0;">Research.</h1>
+                <a href="pages/all-publications.html" style="font-family: 'Questrial', sans-serif; color: var(--accent-color); text-decoration: none; font-size: 15px; font-weight: bold;">
+                    View Full Archive <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                </a>
             </div>
-        </aside>
-
-        <!-- ===================================================
-             2) LUOST26-STYLE ACADEMIC CONTENT AREA
-             =================================================== -->
-        <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-10 flex flex-col justify-between">
             
-            <div class="max-w-4xl mx-auto w-full">
+            <div class="projects" id="featured-publications-container">
+                <!-- Dynamically populated from data/publications.json via script.js -->
+            </div>
+        </div>
+
+        <!-- SECTION 4: HONORS & AWARDS -->
+        <div id="honors">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 50px; margin-bottom: 25px;">
+                <h1 style="margin: 0;">Honors.</h1>
+                <a href="pages/all-honors.html" style="font-family: 'Questrial', sans-serif; color: var(--accent-color); text-decoration: none; font-size: 15px; font-weight: bold;">
+                    View All <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                </a>
+            </div>
+            
+            <div class="projects" id="honors-container">
+                <!-- Dynamically populated from data/honors.json via script.js -->
+            </div>
+        </div>
+
+        <!-- SECTION 5: CONTACT -->
+        <div id="contact">
+            <h1>Contact.</h1>
+            <div class="projects">
                 
-                <!-- Sticky Navigation Bar (luost26 style) -->
-                <nav class="academic-topbar sticky top-0 z-30 mb-6 px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-between">
-                    <span class="font-semibold text-sm text-[#1f2328] font-mono hidden sm:inline-block">Academic Homepage</span>
-                    <ul class="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium">
-                        <li><a href="#about" class="academic-nav-link active">About</a></li>
-                        <li><a href="#research" class="academic-nav-link">Research</a></li>
-                        <li><a href="#educations" class="academic-nav-link">Education</a></li>
-                        <li><a href="#honors" class="academic-nav-link">Honors</a></li>
-                        <li><a href="#contact" class="academic-nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <!-- CARD 1: About Me (luost26 style) -->
-                <section id="about" class="academic-card scroll-mt-20">
-                    <div class="academic-card-header">
-                        <h2 class="academic-card-title">
-                            <i class="fas fa-user-graduate"></i> About Me
-                        </h2>
+                <section class="gitfolio-card">
+                    <div>
+                        <div class="section_title">Office &amp; Academic Address</div>
+                        <div class="about_section">
+                            <p style="margin: 0;">
+                                Department of Environmental Policy &amp; Economics<br>
+                                Duke Kunshan University / Duke University
+                            </p>
+                        </div>
                     </div>
-                    <div class="academic-card-body text-slate-700 space-y-3.5 text-sm sm:text-base leading-relaxed text-justify">
-                        <p>
-                            Welcome! I am an empirical researcher working at the intersection of <strong>environmental economics</strong>, <strong>land-use policy</strong>, and <strong>spatial data science</strong>. My research investigates how macroeconomic shocks, trade policies, and regulatory mechanisms reshape ecological and resource systems.
-                        </p>
-                        <p>
-                            I hold a Master's degree in Environmental Policy from <strong>Duke University</strong>. My methodological toolkit combines causal inference econometric models (Difference-in-Differences, synthetic controls, panel regression) with satellite remote sensing (Sentinel, Landsat, nighttime lights).
-                        </p>
-                        <p class="text-sm bg-blue-50/60 p-3 rounded-lg border border-blue-100/80 text-blue-900">
-                            <strong><i class="fas fa-bullhorn mr-1 text-blue-600"></i> Prospective Students / Collaborators:</strong> I am actively applying to fully-funded PhD programs in environmental and resource economics, public policy, and sustainability. Feel free to reach out via email for collaboration or discussion!
-                        </p>
+                    <div class="bottom_section">
+                        <span><i class="fas fa-map-pin"></i> Academic Office</span>
                     </div>
                 </section>
 
-                <!-- CARD 2: Research & Publications (luost26 style) -->
-                <section id="research" class="academic-card scroll-mt-20">
-                    <div class="academic-card-header">
-                        <h2 class="academic-card-title">
-                            <i class="fas fa-book-open"></i> Research &amp; Selected Publications
-                        </h2>
-                        <a href="pages/all-publications.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                            Full List <i class="fas fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                    <div class="academic-card-body">
-                        <div id="featured-publications-container" class="space-y-4">
-                            <!-- Populated dynamically from data/publications.json via script.js -->
+                <section class="gitfolio-card">
+                    <div>
+                        <div class="section_title">Email &amp; Inquiries</div>
+                        <div class="about_section">
+                            <p style="margin: 0;">
+                                <a href="mailto:your_email@university.edu" style="color: var(--accent-color); text-decoration: none; font-size: 16px; font-weight: bold;">
+                                    your_email@university.edu
+                                </a><br>
+                                Open for academic discussions, collaborative research, and PhD opportunities.
+                            </p>
                         </div>
                     </div>
-                </section>
-
-                <!-- CARD 3: Education (luost26 style) -->
-                <section id="educations" class="academic-card scroll-mt-20">
-                    <div class="academic-card-header">
-                        <h2 class="academic-card-title">
-                            <i class="fas fa-graduation-cap"></i> Education
-                        </h2>
-                    </div>
-                    <div class="academic-card-body">
-                        <div class="space-y-3">
-                            <div class="edu-item">
-                                <div class="edu-icon">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                                        <h3 class="font-semibold text-slate-900 text-sm sm:text-base">Master of Environmental Policy (iMEP)</h3>
-                                        <span class="text-xs sm:text-sm text-slate-500 font-mono italic">2024 - 2026</span>
-                                    </div>
-                                    <p class="text-xs sm:text-sm text-slate-600">Duke University · Duke Kunshan University</p>
-                                    <p class="text-xs text-slate-500 mt-0.5">GPA: 3.9 / 4.0 · Focus: Environmental Econometrics &amp; Climate Policy</p>
-                                </div>
-                            </div>
-
-                            <div class="edu-item">
-                                <div class="edu-icon">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                                        <h3 class="font-semibold text-slate-900 text-sm sm:text-base">Bachelor of Science in Resources &amp; Environment</h3>
-                                        <span class="text-xs sm:text-sm text-slate-500 font-mono italic">2020 - 2024</span>
-                                    </div>
-                                    <p class="text-xs sm:text-sm text-slate-600">Undergraduate University</p>
-                                    <p class="text-xs text-slate-500 mt-0.5">Graduated with Highest Honors · Rank: Top 5%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- CARD 4: Honors & Awards (luost26 style) -->
-                <section id="honors" class="academic-card scroll-mt-20">
-                    <div class="academic-card-header">
-                        <h2 class="academic-card-title">
-                            <i class="fas fa-award"></i> Honors &amp; Awards
-                        </h2>
-                        <a href="pages/all-honors.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                            View All <i class="fas fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                    <div class="academic-card-body">
-                        <div id="honors-container" class="space-y-1">
-                            <!-- Populated dynamically from data/honors.json via script.js -->
-                        </div>
-                    </div>
-                </section>
-
-                <!-- CARD 5: Contact (luost26 style) -->
-                <section id="contact" class="academic-card scroll-mt-20">
-                    <div class="academic-card-header">
-                        <h2 class="academic-card-title">
-                            <i class="fas fa-paper-plane"></i> Contact
-                        </h2>
-                    </div>
-                    <div class="academic-card-body">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                            <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80">
-                                <div class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                                    <i class="fas fa-map-marker-alt text-blue-600"></i> Office Address
-                                </div>
-                                <p class="text-slate-600 text-xs sm:text-sm">
-                                    Department of Economics &amp; Policy<br>
-                                    Duke Kunshan University / Duke University
-                                </p>
-                            </div>
-                            
-                            <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80">
-                                <div class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                                    <i class="fas fa-envelope text-blue-600"></i> Email &amp; Inquiries
-                                </div>
-                                <p class="text-slate-600 text-xs sm:text-sm">
-                                    <a href="mailto:your_email@university.edu" class="text-blue-600 hover:underline">your_email@university.edu</a><br>
-                                    Open to academic exchanges and PhD discussions
-                                </p>
-                            </div>
-                        </div>
+                    <div class="bottom_section">
+                        <a href="mailto:your_email@university.edu" class="gitfolio-tag-btn"><i class="fas fa-paper-plane"></i> Send Email</a>
+                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="gitfolio-tag-btn"><i class="fas fa-file-pdf"></i> Download CV</a>
                     </div>
                 </section>
 
             </div>
+        </div>
 
-            <!-- Footer -->
-            <footer class="mt-8 pt-4 border-t border-slate-200 text-center text-xs text-slate-500">
-                <p>Designed with <a href="https://github.com/imfunniee/gitfolio" target="_blank" class="text-blue-600 hover:underline">Gitfolio</a> &amp; <a href="https://github.com/luost26/academic-homepage" target="_blank" class="text-blue-600 hover:underline">luost26/academic-homepage</a> aesthetic. Hosted on GitHub Pages.</p>
-            </footer>
-
-        </main>
+        <!-- Gitfolio Footer -->
+        <div id="footer">
+            <p>
+                made on earth by a human &nbsp;·&nbsp; <a href="https://github.com/jiz11" target="_blank">Aoxue XU</a> &nbsp;·&nbsp; Powered by <a href="https://github.com/imfunniee/gitfolio" target="_blank">Gitfolio</a>
+            </p>
+        </div>
 
     </div>
 

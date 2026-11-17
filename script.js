@@ -4,30 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    setupMobileMenu();
     setupSmoothScroll();
     loadHonors();
     loadPublications();
 });
 
-function setupMobileMenu() {
-    const btn = document.querySelector('.mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (!btn || !menu) return;
-
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.add('hidden');
-        });
-    });
-}
-
 function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('#header a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#' || !targetId) return;
@@ -35,9 +18,8 @@ function setupSmoothScroll() {
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth' });
-                
-                // Update active link state
-                document.querySelectorAll('.academic-nav-link').forEach(link => link.classList.remove('active'));
+
+                document.querySelectorAll('#header a').forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
             }
         });
@@ -65,14 +47,17 @@ function loadHonors() {
     fetch(getDataPath('honors.json'))
         .then(res => res.json())
         .then(items => {
-            container.innerHTML = items.slice(0, 6).map(item => `
-                <div class="honor-item-row">
-                    <div>
-                        <span class="font-medium text-slate-800">${item.title}</span>
-                        ${item.org ? `<span class="text-xs text-slate-500 block sm:inline sm:ml-2">(${item.org})</span>` : ''}
+            container.innerHTML = items.map(item => `
+                <section class="gitfolio-card">
+                    <div class="section_title">${item.title}</div>
+                    <div class="about_section">
+                        <span>${item.org || 'Award / Honor'}</span>
                     </div>
-                    <span class="font-mono text-xs font-semibold text-blue-600 ml-4 whitespace-nowrap bg-blue-50 px-2 py-0.5 rounded border border-blue-100">${item.date}</span>
-                </div>
+                    <div class="bottom_section">
+                        <span><i class="fas fa-calendar-alt"></i> ${item.date}</span>
+                        <span><i class="fas fa-award"></i> Honor</span>
+                    </div>
+                </section>
             `).join('');
         })
         .catch(err => console.error('Error loading honors:', err));
@@ -87,35 +72,36 @@ function loadPublications() {
         .then(publications => {
             const featured = publications.filter(p => p.showOnHomepage !== false);
             container.innerHTML = featured.map(pub => {
-                const tagsHtml = pub.tags && pub.tags.length ? `
-                    <div class="flex flex-wrap gap-2 pt-1">
-                        ${pub.tags.map(tag => `
-                            <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="pub-action-btn">
-                                <i class="${getTagIcon(tag.text)}"></i> ${tag.text}
-                            </a>
-                        `).join('')}
-                    </div>
-                ` : '';
+                const tagsHtml = pub.tags && pub.tags.length ? pub.tags.map(tag => `
+                    <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="gitfolio-tag-btn">
+                        <i class="${getTagIcon(tag.text)}"></i> ${tag.text}
+                    </a>
+                `).join('') : '';
 
                 const thumbHtml = pub.thumbnail ? `
-                    <div class="pub-teaser-box">
-                        <img src="${pub.thumbnail}" alt="${pub.title} teaser" loading="lazy">
+                    <div class="pub-gitfolio-teaser">
+                        <img src="${pub.thumbnail}" alt="${pub.title} preview" loading="lazy">
                     </div>
                 ` : '';
 
                 return `
-                    <div class="pub-card-item">
-                        ${thumbHtml}
-                        <div class="flex-1 space-y-1.5 min-w-0">
-                            <h4 class="pub-title">${pub.displayTitle || pub.title}</h4>
-                            <p class="pub-authors">${pub.authors}</p>
-                            <div class="pub-venue">
-                                <span>${pub.venue}</span>
-                                ${pub.venueTag ? `<span class="pub-venue-badge">${pub.venueTag}</span>` : ''}
+                    <section class="gitfolio-card">
+                        <div>
+                            ${thumbHtml}
+                            <div class="section_title">${pub.displayTitle || pub.title}</div>
+                            <div class="about_section">
+                                <p style="margin: 0 0 6px 0;">${pub.authors}</p>
+                                <p style="margin: 0; color: #8b949e; font-size: 14px;">
+                                    <em>${pub.venue}</em>
+                                    ${pub.venueTag ? ` <span class="venue-tag-badge">${pub.venueTag}</span>` : ''}
+                                </p>
                             </div>
+                        </div>
+                        <div class="bottom_section">
+                            <span><i class="fas fa-calendar"></i> ${pub.year}</span>
                             ${tagsHtml}
                         </div>
-                    </div>
+                    </section>
                 `;
             }).join('');
         })
