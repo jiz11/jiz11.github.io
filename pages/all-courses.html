@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Honors & Awards | Archive</title>
+    <title>All Courses | Archive</title>
     
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -22,36 +22,18 @@
         <a href="../index.html" style="color: var(--accent-color); font-family: 'Questrial', sans-serif; text-decoration: none; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 8px;">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
-        <span style="font-family: 'Questrial', sans-serif; color: var(--text-secondary); font-size: 14px;">Honors Archive</span>
+        <span style="font-family: 'Questrial', sans-serif; color: var(--text-secondary); font-size: 14px;">Courses Archive</span>
     </div>
 
     <div style="margin-top: 40px;">
-        <h1 style="font-size: 48px; font-family: 'Questrial', sans-serif; color: #fff; margin-bottom: 30px;">All Honors.</h1>
-        <div class="projects" id="all-honors-container"></div>
+        <h1 style="font-size: 48px; font-family: 'Questrial', sans-serif; color: #fff; margin-bottom: 30px;">All Courses.</h1>
+        <div class="projects" id="all-courses-container"></div>
     </div>
 
     <div id="footer" style="margin-top: 60px;">
-        <p>made on earth by a human &nbsp;·&nbsp; <a href="../index.html">Back to Home</a></p>
+        <p>&nbsp;·&nbsp; <a href="../index.html">Back to Home</a></p>
     </div>
 
-    <script>
-        fetch('../data/courses.json')
-            .then(res => res.json())
-            .then(items => {
-                const container = document.getElementById('all-courses-container');
-                container.innerHTML = items.map(item => `
-                    <section class="gitfolio-card">
-                        <div class="section_title">${item.title}</div>
-                        <div class="about_section">
-                            <span>${item.org || 'Award / Honor'}</span>
-                        </div>
-                        <div class="bottom_section">
-                            <span><i class="fas fa-calendar-alt"></i> ${item.date}</span>
-                            <span><i class="fas fa-award"></i> Honor</span>
-                        </div>
-                    </section>
-                `).join('');
-            });
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>

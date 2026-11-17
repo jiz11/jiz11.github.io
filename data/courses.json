@@ -1,9 +1,37 @@
 [
     {
-        "date": "2024",
-        "title": "Guo Tingting Scholarship for Master Project",
-        "org": "iMEP Summer Program 2024",
-        "tags": [
-            { "text": "Materials", "link": "https://github.com/jiz11/iMEPSummer2024_GISWorkshop" }
+        "title": "Master of Environmental Policy (iMEP)",
+        "institution": "Duke University, US",
+        "period": "2021 - 2023",
+        "courses": [
+            "Environmental Economics",
+            "Environmental Sciences",
+            "Environmental GIS",
+            "Environmental Policy Analysis"
+        ]
+    },
+    {
+        "title": "B.Sc. in Environmental Science",
+        "institution": "Aberystwyth University, UK",
+        "period": "2018 - 2020",
+        "courses": [
+            "GIS",
+            "Ecology",
+            "Biology",
+            "Geochemistry",
+            "Climate Change",
+            "Statistics"
+        ]
+    },
+    {
+        "title": "B.Sc. in Environmental Engineering",
+        "institution": "Hohai University, China",
+        "period": "2016 - 2018",
+        "courses": [
+            "Higher Mathematics",
+            "Probability Theory",
+            "Statistics",
+            "Linear Algebra"
         ]
     }
+]
