@@ -1,35 +1,31 @@
 [
     {
-        "title": "Trade Shocks and Deforestation in Brazil: Evidence from Spatial Panel Econometrics",
-        "displayTitle": "Trade Shocks and Deforestation in Brazil",
-        "authors": "<strong>Your Name</strong>, Advisor Name",
+        "title": "Extreme Weather Can Backfire on China's Carbon Mitigation Efforts",
+        "displayTitle": "Extreme Weather Can Backfire on China's Carbon Mitigation Efforts",
+        "authors": "Jingbo Cui, Zhenxuan Wang,<strong>Jinglin Zhang</strong>, Junjie Zhang",
         "type": "working-paper",
-        "isFirstAuthor": true,
         "showOnHomepage": true,
-        "venue": "Working Paper / Master Thesis, Your University",
-        "venueTag": "Working Paper",
-        "year": "2026",
-        "thumbnail": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+        "venue": "We find extreme heat substantially increases Chinses firms'emission. Findings identify a climate-emissions feedback and reveal a tension between adaptation and mitigation.",
+        "venueTag": "Manuscripts in Preparation",
+        "year": "2025-present",
+        "thumbnail": "assets/emission.jpg",
         "tags": [
-            { "text": "Paper (PDF)", "link": "assets/cv.pdf" },
-            { "text": "Code", "link": "https://github.com" },
-            { "text": "Replication", "link": "https://github.com" }
+            { "text": "Solo Draft", "link": "assets/Would_Extreme_Weather_Backfire_Corporate_Carbon_Mitigation_Efforts.pdf" }
         ]
     },
     {
-        "title": "Spectral Characterization and Biogeochemical Interactions of Biochar-derived Dissolved Organic Matter",
-        "displayTitle": "Characterization of Biochar-derived Dissolved Organic Matter",
-        "authors": "<strong>Your Name</strong>, Co-Author One, Co-Author Two",
-        "type": "accepted",
-        "isFirstAuthor": true,
+        "title": "Mapping larch plantation and deforestation history in Qinling Region, China",
+        "displayTitle": "Mapping larch plantation and deforestation history in Qinling Region, China",
+        "authors": "<strong>Jinglin Zhang</strong>, Supervisor: Dr. Binbin Li",
+        "type": "Master Thesis",
         "showOnHomepage": true,
-        "venue": "Journal of Environmental Quality, 2025 · SCI Q1 · DOI: 10.1016/sample.doi",
-        "venueTag": "SCI Q1",
-        "year": "2025",
-        "thumbnail": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80",
+        "venue": "This study used Jilin-1, PlanetScope and Landsat-5 images for multi-temporal supervised interpretation to reveal the current landscape patterns of larch plantation and historical deforestation activities in this region. A follow-up research wish to reveal the effects of historical landscape and long-term landscape dynamics on present-day understory biodiversity in plantation.",
+        "venueTag": ["Master Thesis", "Research Proposal"],
+        "year": "2023",
+        "thumbnail": "assets/larch.jpg",
         "tags": [
-            { "text": "Paper", "link": "#" },
-            { "text": "DOI", "link": "https://doi.org" }
+            { "text": "Master Thesis", "link": "assets/Jinglin_Zhang_FinalMP_04292023.pdf" },
+            { "text": "Follow-up Research Proposal", "link": "assets/Jinglin_Zhang_Research_Proposal_2027FallPhD.pdf" }
         ]
     }
 ]
