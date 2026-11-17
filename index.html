@@ -4,228 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Academic Homepage</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind CSS & Custom Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              background: '#f8fafc',
-              foreground: '#0f172a',
-              primary: '#1e293b',
-              accent: '#d4a562',
-              'accent-dark': '#b7791f',
-              muted: '#64748b'
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Crimson Text', 'serif']
-            }
-          }
-        }
-      };
-    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#f8fafc] text-foreground antialiased font-sans">
+<body class="bg-[#f6f8fa] text-[#24292e] antialiased">
 
-    <!-- Top Navigation Bar -->
-    <nav class="top-nav glass fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 lg:h-20">
-                <div class="flex-shrink-0">
-                    <a href="#homepage" class="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors">
-                        Your Name
-                    </a>
-                </div>
-
-                <div class="hidden lg:block">
-                    <ul class="flex space-x-8 text-sm font-medium text-slate-600">
-                        <li><a href="#homepage" class="nav-item">Homepage</a></li>
-                        <li><a href="#about" class="nav-item">About</a></li>
-                        <li><a href="#research" class="nav-item">Research</a></li>
-                        <li><a href="#honors" class="nav-item">Honors</a></li>
-                        <li><a href="#educations" class="nav-item">Education</a></li>
-                        <li><a href="#contact" class="nav-item">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center">
-                    <button type="button" class="mobile-menu-btn text-slate-600 hover:text-primary p-2">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile menu dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 py-3 space-y-2 bg-white px-2 rounded-b-xl shadow-lg">
-                <a href="#homepage" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">Homepage</a>
-                <a href="#about" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">About</a>
-                <a href="#research" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">Research</a>
-                <a href="#honors" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">Honors</a>
-                <a href="#educations" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">Education</a>
-                <a href="#contact" class="block px-3 py-2 rounded text-slate-700 hover:bg-slate-100">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content Container -->
-    <main class="min-h-screen pt-24 lg:pt-28 pb-16">
-        <div class="w-full max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid-layout">
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        
+        <!-- ===================================================
+             1) GITFOLIO-STYLE LEFT RIBBON
+             =================================================== -->
+        <aside class="gitfolio-ribbon w-full lg:w-[340px] xl:w-[360px] lg:min-h-screen lg:sticky lg:top-0 flex-shrink-0 p-6 lg:p-8 flex flex-col justify-between z-40">
+            <div class="space-y-6">
                 
-                <!-- Left Sidebar: Profile Card -->
-                <aside class="profile-column">
-                    <div class="profile-card sticky top-28 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                        <div class="profile-image-container mb-5 mx-auto max-w-[200px]">
-                            <img src="assets/profile.jpg" 
-                                 alt="Your Portrait" 
-                                 class="w-full h-auto aspect-square object-cover rounded-2xl shadow-md border-2 border-slate-100">
-                        </div>
+                <!-- Avatar & Identity -->
+                <div class="text-left space-y-4">
+                    <div class="inline-block relative">
+                        <img src="assets/profile.jpg" 
+                             alt="Your Portrait" 
+                             class="gitfolio-avatar">
+                    </div>
+                    
+                    <div>
+                        <h1 class="text-2xl font-bold gitfolio-username text-white">Your Name</h1>
+                        <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-handle text-sm inline-flex items-center gap-1.5 mt-0.5">
+                            <i class="fab fa-github text-xs"></i>@jiz11
+                        </a>
+                        <p class="gitfolio-bio mt-2 text-sm">
+                            Researcher &amp; PhD Applicant in Environmental Policy &amp; Spatial Economics.
+                        </p>
+                    </div>
+                </div>
 
-                        <div class="text-center mb-5">
-                            <h1 class="text-2xl lg:text-3xl font-serif font-bold text-primary mb-1">Your Name</h1>
-                            <p class="text-base text-accent font-medium mb-1">PhD Applicant &amp; Researcher</p>
-                            <p class="text-slate-500 text-sm">Your University / Institution</p>
-                        </div>
+                <!-- Meta Info List -->
+                <div class="space-y-2.5 pt-2 border-t border-[#30363d]/60">
+                    <div class="gitfolio-meta-item">
+                        <i class="fas fa-university"></i>
+                        <span>Duke University</span>
+                    </div>
+                    <div class="gitfolio-meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Durham, NC / Kunshan</span>
+                    </div>
+                    <div class="gitfolio-meta-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:your_email@university.edu">your_email@university.edu</a>
+                    </div>
+                    <div class="gitfolio-meta-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-400 hover:underline">Curriculum Vitae (PDF)</a>
+                    </div>
+                </div>
 
-                        <!-- Social & Link Buttons -->
-                        <div class="social-links flex flex-wrap justify-center gap-3 mb-6">
-                            <a href="mailto:your_email@university.edu" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
-                            <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="social-btn" title="CV (PDF)"><i class="fas fa-file-pdf"></i></a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        </div>
+                <!-- Social Links Row -->
+                <div class="pt-2 border-t border-[#30363d]/60">
+                    <div class="text-xs font-mono uppercase tracking-wider text-[#8b949e] mb-2.5">Connect</div>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/jiz11" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="mailto:your_email@university.edu" class="gitfolio-social-btn" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="gitfolio-social-btn" title="Resume">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </div>
+                </div>
 
-                        <!-- Research Interests Card -->
-                        <div class="research-interests-card bg-slate-50 rounded-xl p-4 border border-slate-100">
-                            <h3 class="font-serif font-bold text-base text-primary mb-3 pb-2 border-b border-slate-200 flex items-center">
-                                <i class="fas fa-lightbulb text-accent mr-2 text-sm"></i> Research Interests
-                            </h3>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex items-center text-slate-700">
-                                    <i class="fas fa-chart-line text-accent/80 mr-3 w-4 text-center text-xs"></i>
-                                    <span>Econometrics &amp; Causal Inference</span>
-                                </li>
-                                <li class="flex items-center text-slate-700">
-                                    <i class="fas fa-leaf text-accent/80 mr-3 w-4 text-center text-xs"></i>
-                                    <span>Environmental Policy</span>
-                                </li>
-                                <li class="flex items-center text-slate-700">
-                                    <i class="fas fa-satellite text-accent/80 mr-3 w-4 text-center text-xs"></i>
-                                    <span>Spatial Data Science &amp; GIS</span>
-                                </li>
-                                <li class="flex items-center text-slate-700">
-                                    <i class="fas fa-robot text-accent/80 mr-3 w-4 text-center text-xs"></i>
-                                    <span>AI for Science &amp; Research Tools</span>
-                                </li>
-                            </ul>
+                <!-- Research Interests / Skill Badges (Gitfolio style) -->
+                <div class="pt-2 border-t border-[#30363d]/60">
+                    <div class="text-xs font-mono uppercase tracking-wider text-[#8b949e] mb-2.5">Research Focus</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="gitfolio-badge"><i class="fas fa-chart-line text-blue-400 text-[10px]"></i> Causal Inference</span>
+                        <span class="gitfolio-badge"><i class="fas fa-leaf text-green-400 text-[10px]"></i> Environmental Policy</span>
+                        <span class="gitfolio-badge"><i class="fas fa-satellite text-amber-400 text-[10px]"></i> Spatial GIS</span>
+                        <span class="gitfolio-badge"><i class="fas fa-robot text-purple-400 text-[10px]"></i> AI for Science</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-6 border-t border-[#30363d]/60 text-xs text-[#8b949e] font-mono mt-6 lg:mt-0">
+                &copy; <span id="current-year"></span> Your Name
+            </div>
+        </aside>
+
+        <!-- ===================================================
+             2) LUOST26-STYLE ACADEMIC CONTENT AREA
+             =================================================== -->
+        <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-10 flex flex-col justify-between">
+            
+            <div class="max-w-4xl mx-auto w-full">
+                
+                <!-- Sticky Navigation Bar (luost26 style) -->
+                <nav class="academic-topbar sticky top-0 z-30 mb-6 px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-between">
+                    <span class="font-semibold text-sm text-[#1f2328] font-mono hidden sm:inline-block">Academic Homepage</span>
+                    <ul class="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium">
+                        <li><a href="#about" class="academic-nav-link active">About</a></li>
+                        <li><a href="#research" class="academic-nav-link">Research</a></li>
+                        <li><a href="#educations" class="academic-nav-link">Education</a></li>
+                        <li><a href="#honors" class="academic-nav-link">Honors</a></li>
+                        <li><a href="#contact" class="academic-nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- CARD 1: About Me (luost26 style) -->
+                <section id="about" class="academic-card scroll-mt-20">
+                    <div class="academic-card-header">
+                        <h2 class="academic-card-title">
+                            <i class="fas fa-user-graduate"></i> About Me
+                        </h2>
+                    </div>
+                    <div class="academic-card-body text-slate-700 space-y-3.5 text-sm sm:text-base leading-relaxed text-justify">
+                        <p>
+                            Welcome! I am an empirical researcher working at the intersection of <strong>environmental economics</strong>, <strong>land-use policy</strong>, and <strong>spatial data science</strong>. My research investigates how macroeconomic shocks, trade policies, and regulatory mechanisms reshape ecological and resource systems.
+                        </p>
+                        <p>
+                            I hold a Master's degree in Environmental Policy from <strong>Duke University</strong>. My methodological toolkit combines causal inference econometric models (Difference-in-Differences, synthetic controls, panel regression) with satellite remote sensing (Sentinel, Landsat, nighttime lights).
+                        </p>
+                        <p class="text-sm bg-blue-50/60 p-3 rounded-lg border border-blue-100/80 text-blue-900">
+                            <strong><i class="fas fa-bullhorn mr-1 text-blue-600"></i> Prospective Students / Collaborators:</strong> I am actively applying to fully-funded PhD programs in environmental and resource economics, public policy, and sustainability. Feel free to reach out via email for collaboration or discussion!
+                        </p>
+                    </div>
+                </section>
+
+                <!-- CARD 2: Research & Publications (luost26 style) -->
+                <section id="research" class="academic-card scroll-mt-20">
+                    <div class="academic-card-header">
+                        <h2 class="academic-card-title">
+                            <i class="fas fa-book-open"></i> Research &amp; Selected Publications
+                        </h2>
+                        <a href="pages/all-publications.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
+                            Full List <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="academic-card-body">
+                        <div id="featured-publications-container" class="space-y-4">
+                            <!-- Populated dynamically from data/publications.json via script.js -->
                         </div>
                     </div>
-                </aside>
+                </section>
 
-                <!-- Right Column: Scrollable Content -->
-                <div class="content-column space-y-12">
-                    
-                    <!-- About Me -->
-                    <section id="homepage" class="scroll-mt-24">
-                        <span id="about"></span>
-                        <div class="section-header mb-4">
-                            <h2 class="text-3xl font-serif font-bold text-primary">About Me</h2>
-                        </div>
-                        <div class="prose max-w-none text-slate-700 space-y-4 text-justify leading-relaxed">
-                            <p>
-                                Welcome to my academic homepage! I am a researcher specializing in <strong>empirical economics</strong>, <strong>environmental policy</strong>, and <strong>spatial data science</strong>. I study how policy interventions and macroeconomic shocks shape environmental and economic outcomes using causal inference and remote sensing.
-                            </p>
-                            <p>
-                                I hold a Master's degree in Environmental Policy from <strong>Your University</strong>. My current projects examine land-use transformations, renewable energy integration, and climate adaptation.
-                            </p>
-                            <p>
-                                <strong>Prospective Collaborations:</strong> I am actively applying to fully-funded PhD programs for upcoming cohorts. Feel free to reach out for research discussions or collaboration!
-                            </p>
-                        </div>
-                    </section>
-
-                    <!-- Research -->
-                    <section id="research" class="scroll-mt-24">
-                        <div class="flex justify-between items-baseline mb-4">
-                            <h2 class="text-3xl font-serif font-bold text-primary">Research</h2>
-                            <a href="pages/all-publications.html" class="text-xs font-semibold text-accent hover:underline">View Full List &rarr;</a>
-                        </div>
-                        <div id="featured-publications-container" class="space-y-4">
-                            <!-- Populated from data/publications.json -->
-                        </div>
-                    </section>
-
-                    <!-- Honors & Awards -->
-                    <section id="honors" class="scroll-mt-24">
-                        <div class="flex justify-between items-baseline mb-4">
-                            <h2 class="text-3xl font-serif font-bold text-primary">Honors &amp; Awards</h2>
-                            <a href="pages/all-honors.html" class="text-xs font-semibold text-accent hover:underline">View All &rarr;</a>
-                        </div>
-                        <div id="honors-container" class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-                            <!-- Populated from data/honors.json -->
-                        </div>
-                    </section>
-
-                    <!-- Education -->
-                    <section id="educations" class="scroll-mt-24">
-                        <div class="section-header mb-4">
-                            <h2 class="text-3xl font-serif font-bold text-primary">Education</h2>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-white p-5 rounded-2xl border border-slate-200">
-                                <h3 class="font-semibold text-primary text-lg">Master of Environmental Policy</h3>
-                                <p class="text-sm text-accent font-medium">2024 - 2026</p>
-                                <p class="text-sm text-slate-600 mt-1">Your University · GPA 3.9/4.0</p>
+                <!-- CARD 3: Education (luost26 style) -->
+                <section id="educations" class="academic-card scroll-mt-20">
+                    <div class="academic-card-header">
+                        <h2 class="academic-card-title">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </h2>
+                    </div>
+                    <div class="academic-card-body">
+                        <div class="space-y-3">
+                            <div class="edu-item">
+                                <div class="edu-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                                        <h3 class="font-semibold text-slate-900 text-sm sm:text-base">Master of Environmental Policy (iMEP)</h3>
+                                        <span class="text-xs sm:text-sm text-slate-500 font-mono italic">2024 - 2026</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-600">Duke University · Duke Kunshan University</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">GPA: 3.9 / 4.0 · Focus: Environmental Econometrics &amp; Climate Policy</p>
+                                </div>
                             </div>
-                            <div class="bg-white p-5 rounded-2xl border border-slate-200">
-                                <h3 class="font-semibold text-primary text-lg">Bachelor of Science in Resources &amp; Environment</h3>
-                                <p class="text-sm text-accent font-medium">2020 - 2024</p>
-                                <p class="text-sm text-slate-600 mt-1">Your Undergraduate University · Top 5%</p>
+
+                            <div class="edu-item">
+                                <div class="edu-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                                        <h3 class="font-semibold text-slate-900 text-sm sm:text-base">Bachelor of Science in Resources &amp; Environment</h3>
+                                        <span class="text-xs sm:text-sm text-slate-500 font-mono italic">2020 - 2024</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-600">Undergraduate University</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Graduated with Highest Honors · Rank: Top 5%</p>
+                                </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <!-- Contact -->
-                    <section id="contact" class="scroll-mt-24">
-                        <div class="section-header mb-4">
-                            <h2 class="text-3xl font-serif font-bold text-primary">Contact</h2>
+                <!-- CARD 4: Honors & Awards (luost26 style) -->
+                <section id="honors" class="academic-card scroll-mt-20">
+                    <div class="academic-card-header">
+                        <h2 class="academic-card-title">
+                            <i class="fas fa-award"></i> Honors &amp; Awards
+                        </h2>
+                        <a href="pages/all-honors.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
+                            View All <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="academic-card-body">
+                        <div id="honors-container" class="space-y-1">
+                            <!-- Populated dynamically from data/honors.json via script.js -->
                         </div>
-                        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
-                            <div>
-                                <h3 class="font-semibold text-primary mb-1">Office Location</h3>
-                                <p class="text-slate-600 text-sm flex items-start gap-2">
-                                    <i class="fas fa-map-marker-alt mt-1 text-accent"></i>
-                                    <span>Department of Economics, Building 4, University Campus</span>
+                    </div>
+                </section>
+
+                <!-- CARD 5: Contact (luost26 style) -->
+                <section id="contact" class="academic-card scroll-mt-20">
+                    <div class="academic-card-header">
+                        <h2 class="academic-card-title">
+                            <i class="fas fa-paper-plane"></i> Contact
+                        </h2>
+                    </div>
+                    <div class="academic-card-body">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80">
+                                <div class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i> Office Address
+                                </div>
+                                <p class="text-slate-600 text-xs sm:text-sm">
+                                    Department of Economics &amp; Policy<br>
+                                    Duke Kunshan University / Duke University
                                 </p>
                             </div>
-                            <div>
-                                <h3 class="font-semibold text-primary mb-1">Email</h3>
-                                <p class="text-slate-600 text-sm flex items-start gap-2">
-                                    <i class="fas fa-envelope mt-1 text-accent"></i>
-                                    <a href="mailto:your_email@university.edu" class="hover:text-accent font-medium">your_email@university.edu</a>
+                            
+                            <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80">
+                                <div class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
+                                    <i class="fas fa-envelope text-blue-600"></i> Email &amp; Inquiries
+                                </div>
+                                <p class="text-slate-600 text-xs sm:text-sm">
+                                    <a href="mailto:your_email@university.edu" class="text-blue-600 hover:underline">your_email@university.edu</a><br>
+                                    Open to academic exchanges and PhD discussions
                                 </p>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                </div>
             </div>
-        </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 py-8 bg-slate-50">
-        <div class="max-w-[1480px] mx-auto px-4 text-center text-slate-500 text-sm">
-            <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
-        </div>
-    </footer>
+            <!-- Footer -->
+            <footer class="mt-8 pt-4 border-t border-slate-200 text-center text-xs text-slate-500">
+                <p>Designed with <a href="https://github.com/imfunniee/gitfolio" target="_blank" class="text-blue-600 hover:underline">Gitfolio</a> &amp; <a href="https://github.com/luost26/academic-homepage" target="_blank" class="text-blue-600 hover:underline">luost26/academic-homepage</a> aesthetic. Hosted on GitHub Pages.</p>
+            </footer>
+
+        </main>
+
+    </div>
 
     <script src="script.js"></script>
 </body>

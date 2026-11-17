@@ -1,170 +1,355 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+:root {
+  --gitfolio-bg: #0d1117;
+  --gitfolio-card: #161b22;
+  --gitfolio-border: #30363d;
+  --gitfolio-text: #c9d1d9;
+  --gitfolio-heading: #f0f6fc;
+  --gitfolio-accent: #58a6ff;
+  --gitfolio-accent-hover: #79c0ff;
+  
+  --academic-bg: #f6f8fa;
+  --academic-card-bg: #ffffff;
+  --academic-border: #e1e4e8;
+  --academic-text: #24292e;
+  --academic-muted: #586069;
+  --academic-primary: #0366d6;
+}
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: #0f172a;
-    background-color: #f8fafc;
-    line-height: 1.6;
-    margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--academic-text);
+  background-color: var(--academic-bg);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
+/* ===================================================
+   1) GITFOLIO-STYLE LEFT RIBBON
+   =================================================== */
+.gitfolio-ribbon {
+  background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+  color: var(--gitfolio-text);
+  border-right: 1px solid var(--gitfolio-border);
 }
 
-.glass {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+.gitfolio-avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.top-nav {
-    border-bottom: 1px solid #e2e8f0;
+.gitfolio-avatar:hover {
+  transform: scale(1.02);
+  border-color: var(--gitfolio-accent);
 }
 
-.nav-item {
-    position: relative;
-    font-weight: 500;
-    color: #475569;
-    transition: color 0.2s;
-    text-decoration: none;
+.gitfolio-username {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gitfolio-heading);
 }
 
-.nav-item:hover,
-.nav-item.active {
-    color: #1e293b;
+.gitfolio-handle {
+  font-family: 'Source Code Pro', monospace;
+  color: #8b949e;
+  transition: color 0.2s ease;
 }
 
-.grid-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+.gitfolio-handle:hover {
+  color: var(--gitfolio-accent);
 }
 
-@media (min-width: 1024px) {
-    .grid-layout {
-        grid-template-columns: 320px 1fr;
-        gap: 3.5rem;
-        align-items: start;
-    }
+.gitfolio-bio {
+  color: #8b949e;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
-.social-btn {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    border: 1px solid #e2e8f0;
-    color: #475569;
-    background: #ffffff;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px -8px rgba(15, 23, 42, 0.25);
+.gitfolio-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #c9d1d9;
 }
 
-.social-btn:hover {
-    border-color: rgba(212, 165, 98, 0.6);
-    color: #b7791f;
-    transform: translateY(-2px);
+.gitfolio-meta-item i {
+  width: 16px;
+  text-align: center;
+  color: #8b949e;
 }
 
-/* Publication Item Styling */
-.pub-list-item {
-    display: flex;
-    gap: 1.4rem;
-    align-items: flex-start;
-    padding: 1.25rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+.gitfolio-meta-item a {
+  color: #c9d1d9;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.pub-list-item:hover {
-    border-color: rgba(212, 165, 98, 0.55);
-    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.05);
+.gitfolio-meta-item a:hover {
+  color: var(--gitfolio-accent);
 }
 
-.pub-thumbnail-box {
-    width: 240px;
-    aspect-ratio: 16 / 9;
-    flex-shrink: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
+/* Gitfolio Social Buttons */
+.gitfolio-social-btn {
+  width: 2.35rem;
+  height: 2.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--gitfolio-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #c9d1d9;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.pub-thumbnail-box img {
+.gitfolio-social-btn:hover {
+  background: rgba(88, 166, 255, 0.15);
+  border-color: var(--gitfolio-accent);
+  color: var(--gitfolio-accent);
+  transform: translateY(-2px);
+}
+
+/* Gitfolio Skill / Interest Badges */
+.gitfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-family: 'Source Code Pro', monospace;
+  background: rgba(110, 118, 129, 0.15);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  color: #c9d1d9;
+  transition: all 0.2s;
+}
+
+.gitfolio-badge:hover {
+  border-color: var(--gitfolio-accent);
+  color: var(--gitfolio-accent);
+}
+
+/* ===================================================
+   2) LUOST26-STYLE ACADEMIC CONTENT
+   =================================================== */
+.academic-topbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--academic-border);
+}
+
+.academic-nav-link {
+  font-weight: 500;
+  color: #586069;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.18s ease;
+  font-size: 0.9rem;
+}
+
+.academic-nav-link:hover,
+.academic-nav-link.active {
+  color: var(--academic-primary);
+  background: #f1f8ff;
+}
+
+/* luost26 Card Style */
+.academic-card {
+  background: #ffffff;
+  border: 1px solid var(--academic-border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.academic-card-header {
+  padding: 0.9rem 1.25rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--academic-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.academic-card-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1f2328;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.academic-card-title i {
+  color: var(--academic-primary);
+  font-size: 1.05rem;
+}
+
+.academic-card-body {
+  padding: 1.25rem;
+}
+
+/* luost26 Publication Item */
+.pub-card-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #eaecef;
+}
+
+.pub-card-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0.2rem;
+}
+
+.pub-card-item:first-child {
+  padding-top: 0.2rem;
+}
+
+.pub-teaser-box {
+  width: 170px;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e1e4e8;
+  background: #f6f8fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pub-teaser-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.pub-card-item:hover .pub-teaser-box img {
+  transform: scale(1.03);
+}
+
+.pub-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #1f2328;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  color: #444d56;
+  margin-bottom: 0.25rem;
+}
+
+.pub-authors strong {
+  color: #0366d6;
+  font-weight: 600;
+}
+
+.pub-venue {
+  font-size: 0.86rem;
+  color: #586069;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.pub-venue-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #f1f8ff;
+  color: #0366d6;
+  border: 1px solid rgba(3, 102, 214, 0.2);
+}
+
+.pub-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5da;
+  background: #fafbfc;
+  color: #24292e;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.pub-action-btn:hover {
+  background: #f3f4f6;
+  border-color: #0366d6;
+  color: #0366d6;
+}
+
+/* luost26 Education & Honor items */
+.edu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px dashed #eaecef;
+}
+
+.edu-item:last-child {
+  border-bottom: none;
+}
+
+.edu-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f1f8ff;
+  color: #0366d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(3, 102, 214, 0.15);
+}
+
+.honor-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #eaecef;
+  font-size: 0.9rem;
+}
+
+.honor-item-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .pub-card-item {
+    flex-direction: column;
+  }
+  .pub-teaser-box {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.pub-link-btn {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.2rem 0.65rem;
-    border: 1px solid #dbe4ef;
-    border-radius: 9999px;
-    color: #475569;
-    text-decoration: none;
-    transition: all 0.2s;
-    background-color: #ffffff;
-}
-
-.pub-link-btn:hover {
-    border-color: rgba(212, 165, 98, 0.6);
-    color: #b7791f;
-    background-color: #fffaf0;
-}
-
-.pub-venue-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.18rem 0.58rem;
-    border-radius: 9999px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #b7791f;
-    border: 1px solid rgba(212, 165, 98, 0.4);
-    background: #fffaf0;
-}
-
-/* News row */
-.news-item {
-    display: grid;
-    grid-template-columns: 85px 1fr;
-    gap: 1.25rem;
-    align-items: baseline;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px dashed #e2e8f0;
-}
-
-.news-item:last-child {
-    border-bottom: none;
-}
-
-.news-date {
-    font-family: 'Kalam', cursive;
-    font-size: 0.9rem;
-    color: #64748b;
-    white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-    .pub-list-item {
-        flex-direction: column;
-    }
-    .pub-thumbnail-box {
-        width: 100%;
-    }
-    .news-item {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-    }
+    aspect-ratio: 16 / 9;
+  }
 }

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupMobileMenu();
     setupSmoothScroll();
-    loadNews();
     loadHonors();
     loadPublications();
 });
@@ -31,11 +30,15 @@ function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId) return;
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth' });
+                
+                // Update active link state
+                document.querySelectorAll('.academic-nav-link').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
             }
         });
     });
@@ -45,21 +48,14 @@ function getDataPath(fileName) {
     return window.location.pathname.includes('/pages/') ? `../data/${fileName}` : `data/${fileName}`;
 }
 
-function loadNews() {
-    const container = document.getElementById('news-container');
-    if (!container) return;
-
-    fetch(getDataPath('news.json'))
-        .then(res => res.json())
-        .then(items => {
-            container.innerHTML = items.slice(0, 6).map(item => `
-                <div class="news-item">
-                    <span class="news-date">${item.date}</span>
-                    <span class="text-sm text-slate-700">${item.content}</span>
-                </div>
-            `).join('');
-        })
-        .catch(err => console.error('Error loading news:', err));
+function getTagIcon(text) {
+    const lower = String(text || '').toLowerCase();
+    if (lower.includes('pdf') || lower.includes('paper')) return 'far fa-file-pdf';
+    if (lower.includes('code') || lower.includes('github')) return 'fab fa-github';
+    if (lower.includes('doi') || lower.includes('link')) return 'fas fa-external-link-alt';
+    if (lower.includes('slide')) return 'far fa-file-powerpoint';
+    if (lower.includes('data') || lower.includes('dataset')) return 'fas fa-database';
+    return 'fas fa-link';
 }
 
 function loadHonors() {
@@ -70,9 +66,12 @@ function loadHonors() {
         .then(res => res.json())
         .then(items => {
             container.innerHTML = items.slice(0, 6).map(item => `
-                <div class="flex justify-between items-baseline py-2 border-b border-slate-100 last:border-none text-sm">
-                    <span class="font-medium text-slate-800">${item.title} <span class="text-xs text-slate-400 font-normal">(${item.org})</span></span>
-                    <span class="text-accent font-semibold text-xs ml-4">${item.date}</span>
+                <div class="honor-item-row">
+                    <div>
+                        <span class="font-medium text-slate-800">${item.title}</span>
+                        ${item.org ? `<span class="text-xs text-slate-500 block sm:inline sm:ml-2">(${item.org})</span>` : ''}
+                    </div>
+                    <span class="font-mono text-xs font-semibold text-blue-600 ml-4 whitespace-nowrap bg-blue-50 px-2 py-0.5 rounded border border-blue-100">${item.date}</span>
                 </div>
             `).join('');
         })
@@ -86,32 +85,39 @@ function loadPublications() {
     fetch(getDataPath('publications.json'))
         .then(res => res.json())
         .then(publications => {
-            const featured = publications.filter(p => p.showOnHomepage);
-            container.innerHTML = featured.map(pub => `
-                <div class="pub-list-item">
-                    <div class="flex-1 space-y-2">
-                        <div class="flex flex-wrap items-center gap-2">
-                            <h3 class="font-semibold text-slate-900 text-base leading-snug">${pub.displayTitle || pub.title}</h3>
-                            ${pub.venueTag ? `<span class="pub-venue-tag">${pub.venueTag}</span>` : ''}
-                        </div>
-                        <p class="text-sm text-slate-600">${pub.authors}</p>
-                        <p class="text-xs text-slate-500 italic">${pub.venue}</p>
-                        
-                        ${pub.tags && pub.tags.length ? `
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                ${pub.tags.map(tag => `
-                                    <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="pub-link-btn">${tag.text}</a>
-                                `).join('')}
-                            </div>
-                        ` : ''}
+            const featured = publications.filter(p => p.showOnHomepage !== false);
+            container.innerHTML = featured.map(pub => {
+                const tagsHtml = pub.tags && pub.tags.length ? `
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        ${pub.tags.map(tag => `
+                            <a href="${tag.link}" target="_blank" rel="noopener noreferrer" class="pub-action-btn">
+                                <i class="${getTagIcon(tag.text)}"></i> ${tag.text}
+                            </a>
+                        `).join('')}
                     </div>
-                    ${pub.thumbnail ? `
-                        <div class="pub-thumbnail-box hidden sm:block">
-                            <img src="${pub.thumbnail}" alt="${pub.title} preview" loading="lazy">
+                ` : '';
+
+                const thumbHtml = pub.thumbnail ? `
+                    <div class="pub-teaser-box">
+                        <img src="${pub.thumbnail}" alt="${pub.title} teaser" loading="lazy">
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="pub-card-item">
+                        ${thumbHtml}
+                        <div class="flex-1 space-y-1.5 min-w-0">
+                            <h4 class="pub-title">${pub.displayTitle || pub.title}</h4>
+                            <p class="pub-authors">${pub.authors}</p>
+                            <div class="pub-venue">
+                                <span>${pub.venue}</span>
+                                ${pub.venueTag ? `<span class="pub-venue-badge">${pub.venueTag}</span>` : ''}
+                            </div>
+                            ${tagsHtml}
                         </div>
-                    ` : ''}
-                </div>
-            `).join('');
+                    </div>
+                `;
+            }).join('');
         })
         .catch(err => console.error('Error loading publications:', err));
 }
