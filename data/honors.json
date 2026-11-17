@@ -13,13 +13,5 @@
         "date": "2019-2020",
         "title": "Aberystwyth Regional Scholarships for Undergraduate Students",
         "org": "Aberystwyth University"
-    },
-    {
-        "date": "2024",
-        "title": "Guo Tingting Scholarship for Master Project",
-        "org": "iMEP Summer Program 2024",
-        "tags": [
-            { "text": "Materials", "link": "https://github.com/jiz11/iMEPSummer2024_GISWorkshop" }
-        ]
     }
 ]
