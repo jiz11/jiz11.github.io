@@ -9,6 +9,14 @@
   --gitfolio-accent: #58a6ff;
   --gitfolio-accent-hover: #79c0ff;
   
+  /* Gitfolio Signature Background Image (with dark gradient overlay for text clarity) */
+  --gitfolio-bg-image: linear-gradient(
+      180deg,
+      rgba(13, 17, 23, 0.72) 0%,
+      rgba(22, 27, 34, 0.92) 100%
+    ),
+    url("https://images.unsplash.com/photo-1562683855-f85c2a6446b6?w=1701&q=80");
+  
   --academic-bg: #f6f8fa;
   --academic-card-bg: #ffffff;
   --academic-border: #e1e4e8;
@@ -30,9 +38,26 @@ body {
    1) GITFOLIO-STYLE LEFT RIBBON
    =================================================== */
 .gitfolio-ribbon {
-  background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+  background: var(--gitfolio-bg-image) center center / cover no-repeat;
+  background-attachment: scroll;
   color: var(--gitfolio-text);
   border-right: 1px solid var(--gitfolio-border);
+  position: relative;
+}
+
+.gitfolio-ribbon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gitfolio-ribbon > * {
+  position: relative;
+  z-index: 1;
 }
 
 .gitfolio-avatar {
@@ -104,7 +129,9 @@ body {
   justify-content: center;
   border-radius: 8px;
   border: 1px solid var(--gitfolio-border);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(22, 27, 34, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #c9d1d9;
   font-size: 1rem;
   text-decoration: none;
@@ -112,7 +139,7 @@ body {
 }
 
 .gitfolio-social-btn:hover {
-  background: rgba(88, 166, 255, 0.15);
+  background: rgba(88, 166, 255, 0.2);
   border-color: var(--gitfolio-accent);
   color: var(--gitfolio-accent);
   transform: translateY(-2px);
@@ -127,8 +154,10 @@ body {
   border-radius: 6px;
   font-size: 0.76rem;
   font-family: 'Source Code Pro', monospace;
-  background: rgba(110, 118, 129, 0.15);
-  border: 1px solid rgba(240, 246, 252, 0.1);
+  background: rgba(22, 27, 34, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(240, 246, 252, 0.15);
   color: #c9d1d9;
   transition: all 0.2s;
 }
